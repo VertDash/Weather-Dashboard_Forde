@@ -273,6 +273,47 @@ file and table names not concrete
 
 |     | **Enhancement**    | –                | Add small animations to weather icons (e.g., sun pulsing, rain moving) for better interactivity (please dont hold my feet to the fire on this one )|
 
+## Section 3: High-Level Architecture Sketch
+
+**Core Modules & Folders**
+
+- `main.py` — Entry point, launches the app and GUI
+- `config.py` — Loads API key from `.env`
+- `core/`
+    - `api.py` — Fetches weather data from OpenWeatherMap
+    - `processor.py` — Processes and cleans weather data
+    - `storage.py` — Saves and loads weather data
+- `utils/` — Helper functions and utilities
+- `data/` — Local data files (for offline use or caching)
+
+**Feature Modules**
+
+- `features/`
+    - `base.py` — Base class for features
+    - `city_comparison.py` — Compare weather between cities
+    - `simple_stats.py` — Show basic statistics
+    - `weather_icons.py` — Display weather icons
+
+**GUI**
+
+- `gui/`
+    - `main_window.py` — Main user interface
+
+---
+
+**Data Flow Diagram**
+
+```mermaid
+flowchart TD
+    A[main.py] --> B[gui/]
+    B --> C[features/]
+    B --> D[core/]
+    D --> E[utils/]
+    D --> F[data/]
+    C --> D
+    C --> E
+```
+
 ## Section 4: Data Model Plan
 
 file and table names not concrete 
@@ -301,7 +342,7 @@ file and table names not concrete
 | Risk                         | Likelihood | Impact | How I’ll Handle It |
 |------------------------------|------------|--------|---------------------|
 | **UI not working properly**  | Medium     | Medium | I’ll build the interface in small steps and test each part as I go. If something breaks, I’ll go back to the last version that worked and add pieces more carefully. |
-| **Time management**          | High       | High   | I’ll break tasks into small chunks each week and set realistic goals. I’ll also leave buffer days in case something takes longer than expected. |
+| **Time management**          | High       | High   | I’ll break tasks into smaller chunks each week and set realistic goals. I’ll also leave buffer days in case something takes longer than expected. |
 | **API rate limits or key problems** | Medium     | Medium | I’ll test the API early and save results to a file, so I don’t need to call it every time. I’ll also keep a backup plan with example data if the API breaks. |
 | **Error handling and feature creep** | Medium     | High   | I’ll focus on getting core features working first. If I have time later, I’ll add extras. I’ll also write basic error checks so my app doesn’t crash if something goes wrong. |
 
