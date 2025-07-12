@@ -1,0 +1,595 @@
+{
+  "boston": {
+    "coord": {
+      "lon": -71.0598,
+      "lat": 42.3584
+    },
+    "weather": [
+      {
+        "id": 701,
+        "main": "Mist",
+        "description": "mist",
+        "icon": "50d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 65.46,
+      "feels_like": 65.7,
+      "temp_min": 63.09,
+      "temp_max": 66.99,
+      "pressure": 1016,
+      "humidity": 85,
+      "sea_level": 1016,
+      "grnd_level": 1011
+    },
+    "visibility": 4828,
+    "wind": {
+      "speed": 5.75,
+      "deg": 40
+    },
+    "clouds": {
+      "all": 100
+    },
+    "dt": 1752188400,
+    "sys": {
+      "type": 2,
+      "id": 2013408,
+      "country": "US",
+      "sunrise": 1752139012,
+      "sunset": 1752193320
+    },
+    "timezone": -14400,
+    "id": 4930956,
+    "name": "Boston",
+    "cod": 200
+  },
+  "New YOrk": {
+    "coord": {
+      "lon": -74.006,
+      "lat": 40.7143
+    },
+    "weather": [
+      {
+        "id": 801,
+        "main": "Clouds",
+        "description": "few clouds",
+        "icon": "02d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 92.75,
+      "feels_like": 101.32,
+      "temp_min": 88.97,
+      "temp_max": 94.95,
+      "pressure": 1012,
+      "humidity": 52,
+      "sea_level": 1012,
+      "grnd_level": 1011
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 6.91,
+      "deg": 0
+    },
+    "clouds": {
+      "all": 20
+    },
+    "dt": 1752011167,
+    "sys": {
+      "type": 2,
+      "id": 2037026,
+      "country": "US",
+      "sunrise": 1751967157,
+      "sunset": 1752020956
+    },
+    "timezone": -14400,
+    "id": 5128581,
+    "name": "New York",
+    "cod": 200
+  },
+  "bos": {
+    "coord": {
+      "lon": 4.7167,
+      "lat": 51.0667
+    },
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clouds",
+        "description": "scattered clouds",
+        "icon": "03n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 57.88,
+      "feels_like": 57.13,
+      "temp_min": 54.77,
+      "temp_max": 59.29,
+      "pressure": 1022,
+      "humidity": 80,
+      "sea_level": 1022,
+      "grnd_level": 1021
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 2.95,
+      "deg": 21,
+      "gust": 3.11
+    },
+    "clouds": {
+      "all": 45
+    },
+    "dt": 1752107058,
+    "sys": {
+      "type": 2,
+      "id": 2003727,
+      "country": "BE",
+      "sunrise": 1752118690,
+      "sunset": 1752177266
+    },
+    "timezone": 7200,
+    "id": 2801423,
+    "name": "Bos",
+    "cod": 200
+  },
+  "las": {
+    "coord": {
+      "lon": 19.4295,
+      "lat": 49.7393
+    },
+    "weather": [
+      {
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 50.61,
+      "feels_like": 49.14,
+      "temp_min": 50.36,
+      "temp_max": 54.68,
+      "pressure": 1013,
+      "humidity": 80,
+      "sea_level": 1013,
+      "grnd_level": 950
+    },
+    "visibility": 1762,
+    "wind": {
+      "speed": 1.01,
+      "deg": 94,
+      "gust": 3
+    },
+    "clouds": {
+      "all": 100
+    },
+    "dt": 1752107069,
+    "sys": {
+      "type": 2,
+      "id": 2040065,
+      "country": "PL",
+      "sunrise": 1752115542,
+      "sunset": 1752173351
+    },
+    "timezone": 7200,
+    "id": 3103402,
+    "name": "Las",
+    "cod": 200
+  },
+  "vegas": {
+    "coord": {
+      "lon": -81.818,
+      "lat": 22.7928
+    },
+    "weather": [
+      {
+        "id": 500,
+        "main": "Rain",
+        "description": "light rain",
+        "icon": "10d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 84.31,
+      "feels_like": 93.67,
+      "temp_min": 84.31,
+      "temp_max": 84.31,
+      "pressure": 1016,
+      "humidity": 77,
+      "sea_level": 1016,
+      "grnd_level": 1010
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 6.51,
+      "deg": 48,
+      "gust": 8.99
+    },
+    "rain": {
+      "1h": 0.32
+    },
+    "clouds": {
+      "all": 98
+    },
+    "dt": 1752186468,
+    "sys": {
+      "country": "CU",
+      "sunrise": 1752144543,
+      "sunset": 1752192953
+    },
+    "timezone": -14400,
+    "id": 3557378,
+    "name": "Vegas",
+    "cod": 200
+  },
+  "new york": {
+    "coord": {
+      "lon": -74.006,
+      "lat": 40.7143
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 80.19,
+      "feels_like": 83.52,
+      "temp_min": 77.95,
+      "temp_max": 83.19,
+      "pressure": 1013,
+      "humidity": 72,
+      "sea_level": 1013,
+      "grnd_level": 1012
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 10.36,
+      "deg": 170
+    },
+    "clouds": {
+      "all": 0
+    },
+    "dt": 1752188227,
+    "sys": {
+      "type": 2,
+      "id": 2008776,
+      "country": "US",
+      "sunrise": 1752140038,
+      "sunset": 1752193708
+    },
+    "timezone": -14400,
+    "id": 5128581,
+    "name": "New York",
+    "cod": 200
+  },
+  "olp": {
+    "coord": {
+      "lon": 1.1147,
+      "lat": 42.4309
+    },
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clouds",
+        "description": "scattered clouds",
+        "icon": "03n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 66.7,
+      "feels_like": 66.36,
+      "temp_min": 66.7,
+      "temp_max": 66.7,
+      "pressure": 1019,
+      "humidity": 70,
+      "sea_level": 1019,
+      "grnd_level": 850
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 3.65,
+      "deg": 11,
+      "gust": 3.6
+    },
+    "clouds": {
+      "all": 46
+    },
+    "dt": 1752188586,
+    "sys": {
+      "type": 2,
+      "id": 2005643,
+      "country": "ES",
+      "sunrise": 1752208111,
+      "sunset": 1752262390
+    },
+    "timezone": 7200,
+    "id": 3041565,
+    "name": "Olp",
+    "cod": 200
+  },
+  "new jersey": {
+    "coord": {
+      "lon": -74.4999,
+      "lat": 40.1671
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 79.16,
+      "feels_like": 79.16,
+      "temp_min": 76.89,
+      "temp_max": 81.79,
+      "pressure": 1013,
+      "humidity": 76,
+      "sea_level": 1013,
+      "grnd_level": 1008
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 4.61,
+      "deg": 170
+    },
+    "clouds": {
+      "all": 0
+    },
+    "dt": 1752188481,
+    "sys": {
+      "type": 2,
+      "id": 2006070,
+      "country": "US",
+      "sunrise": 1752140258,
+      "sunset": 1752193725
+    },
+    "timezone": -14400,
+    "id": 5101760,
+    "name": "New Jersey",
+    "cod": 200
+  },
+  "bismark": {
+    "coord": {
+      "lon": 11.5667,
+      "lat": 52.6667
+    },
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clouds",
+        "description": "scattered clouds",
+        "icon": "03n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 59.77,
+      "feels_like": 59.16,
+      "temp_min": 59.77,
+      "temp_max": 59.77,
+      "pressure": 1018,
+      "humidity": 79,
+      "sea_level": 1018,
+      "grnd_level": 1012
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 4.56,
+      "deg": 348,
+      "gust": 4.5
+    },
+    "clouds": {
+      "all": 45
+    },
+    "dt": 1752190139,
+    "sys": {
+      "type": 2,
+      "id": 2000066,
+      "country": "DE",
+      "sunrise": 1752203005,
+      "sunset": 1752262478
+    },
+    "timezone": 7200,
+    "id": 2948229,
+    "name": "Bismark",
+    "cod": 200
+  },
+  "bronx ": {
+    "coord": {
+      "lon": -73.9236,
+      "lat": 40.8273
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 79.36,
+      "feels_like": 79.36,
+      "temp_min": 76.78,
+      "temp_max": 81.79,
+      "pressure": 1014,
+      "humidity": 73,
+      "sea_level": 1014,
+      "grnd_level": 1011
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 8.05,
+      "deg": 160
+    },
+    "clouds": {
+      "all": 0
+    },
+    "dt": 1752190625,
+    "sys": {
+      "type": 2,
+      "id": 57022,
+      "country": "US",
+      "sunrise": 1752139997,
+      "sunset": 1752193710
+    },
+    "timezone": -14400,
+    "id": 5110253,
+    "name": "Bronx",
+    "cod": 200
+  },
+  "west chester": {
+    "coord": {
+      "lon": -75.6055,
+      "lat": 39.9607
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 78.69,
+      "feels_like": 79.93,
+      "temp_min": 76.62,
+      "temp_max": 80.71,
+      "pressure": 1014,
+      "humidity": 78,
+      "sea_level": 1014,
+      "grnd_level": 999
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 3,
+      "deg": 175,
+      "gust": 5.01
+    },
+    "clouds": {
+      "all": 0
+    },
+    "dt": 1752190577,
+    "sys": {
+      "type": 1,
+      "id": 5209,
+      "country": "US",
+      "sunrise": 1752140562,
+      "sunset": 1752193952
+    },
+    "timezone": -14400,
+    "id": 4562144,
+    "name": "West Chester",
+    "cod": 200
+  },
+  "harlem": {
+    "coord": {
+      "lon": -82.3126,
+      "lat": 33.4146
+    },
+    "weather": [
+      {
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 76.01,
+      "feels_like": 77.45,
+      "temp_min": 74.66,
+      "temp_max": 78.42,
+      "pressure": 1016,
+      "humidity": 88,
+      "sea_level": 1016,
+      "grnd_level": 1000
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 2.35,
+      "deg": 257,
+      "gust": 7.49
+    },
+    "clouds": {
+      "all": 92
+    },
+    "dt": 1752190648,
+    "sys": {
+      "type": 2,
+      "id": 2009545,
+      "country": "US",
+      "sunrise": 1752143253,
+      "sunset": 1752194480
+    },
+    "timezone": -14400,
+    "id": 4199219,
+    "name": "Harlem",
+    "cod": 200
+  },
+  "annapolis": {
+    "coord": {
+      "lon": -76.4922,
+      "lat": 38.9785
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 80.94,
+      "feels_like": 87.08,
+      "temp_min": 79.25,
+      "temp_max": 82.49,
+      "pressure": 1013,
+      "humidity": 84,
+      "sea_level": 1013,
+      "grnd_level": 1012
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 6.91,
+      "deg": 130
+    },
+    "clouds": {
+      "all": 0
+    },
+    "dt": 1752190541,
+    "sys": {
+      "type": 1,
+      "id": 5056,
+      "country": "US",
+      "sunrise": 1752140951,
+      "sunset": 1752193988
+    },
+    "timezone": -14400,
+    "id": 4347242,
+    "name": "Annapolis",
+    "cod": 200
+  }
+}
