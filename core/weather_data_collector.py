@@ -1,36 +1,42 @@
 import sys
 import os
 import requests
-import time 
+import time #  add delay between retries
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from config import OPENWEATHER_API_KEY
 
 print("Script started")
 
 class WeatherDataCollector:
-    """
-    Collects weather data from OpenWeatherMap API with robust error handling and data validation.
+    """ This class gets weather data from the OpenWeather API
+    
     """
 
     BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
+    # Set up data collector with the API key and 'retry' settings
 
     def __init__(self, api_key=OPENWEATHER_API_KEY, max_retries=3, retry_delay=2):
         self.api_key = api_key
-        self.max_retries = max_retries
-        self.retry_delay = retry_delay
+        self.max_retries = max_retries # How many times to try if it fails
+        self.retry_delay = retry_delay # # How long to wait between tries
 
     def fetch_weather(self, city):
         """
-        Fetch weather data for a given city with error handling and validation.
-        Returns a dict with weather data or raises an exception.
+        Get weather data for a city with error handling and retries.
         """
+
+        # Set up the parameters for our API request
         params = {
-            "q": city,
-            "appid": self.api_key,
-            "units": "imperial"
+            "q": city, # The city we want weather for
+            "appid": self.api_key, # API key
+            "units": "imperial" # Get temperature in Fahrenheit
         }
-        attempt = 0
+        attempt = 0 # Keep track of how many times tried
         while attempt < self.max_retries:
+        # Make the actual request to the weather service
+        # Check if we're being rate limited (too many requests)
+
             try:
                 response = requests.get(self.BASE_URL, params=params, timeout=5)
                 
@@ -49,23 +55,26 @@ class WeatherDataCollector:
                 response.raise_for_status()
                 data = response.json()
 
-                # Handling for invalid API responses
+                # Handling for invalid API responses. Make sure it got the 
+                   # expected data
                 if "main" not in data or "temp" not in data["main"]:
                     raise ValueError("Invalid API response: missing temperature data.")
-
+                # make sure temp makes sense
                 temp = data["main"]["temp"]
                 if not (-100 < temp < 150):
                     raise ValueError(f"Unreasonable temperature value: {temp}")
     
                 return data
 
+            # Network issue 
             except requests.exceptions.RequestException as e:
                 print(f"Network error: {e}. Retrying...")
                 time.sleep(self.retry_delay)
                 attempt += 1
+            # data issues( invalid data, bad response etc)
             except ValueError as ve:
                 print(f"Data error: {ve}")
-                raise ve
+                raise ve # dont retry for data issues
 
         raise Exception("Failed to fetch weather data after multiple attempts.")
 
@@ -100,29 +109,3 @@ if __name__ == "__main__":
     test_invalid_city()
     test_rate_limit()
     test_unreasonable_temp()
-
-"""
-# Documentation of Error Scenarios Handled
-
-1. **Network connectivity issues:**  
-   - Caught with `requests.exceptions.RequestException`
-   - Retries up to `max_retries` times with a delay
-
-2. **Invalid API responses:**  
-   - Checks if expected keys are present in the response
-   - Raises ValueError if data is missing or malformed
-
-3. **Rate limiting:**  
-   - Checks for HTTP 429 status code
-   - Waits and retries if rate limit is hit
-
-4. **Data validation:**  
-   - Ensures temperature is within a reasonable range (-100 to 150 F)
-   - Raises ValueError if data is out of bounds
-
-# Extension
-To support multiple weather APIs, you could:
-- Add a method for each API and select based on config
-- Use a base class/interface for API collectors
-- Standardize data format in a post-processing step
-"""

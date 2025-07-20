@@ -1,47 +1,69 @@
 import tkinter as tk
+from tkinter import ttk
 from core.weather_data_collector import WeatherDataCollector
 from core.storage import WeatherStorage 
+from features.city_comparison import CityComparison
 
+
+# The main window that users see and interact with
 class WeatherApp(tk.Tk):
+    # Initialize the parent class (tk.Tk)
+    # set up window and Create all the buttons, labels, and inputs
+
     def __init__(self):
         super().__init__()
         self.title("Weather Dashboard")
-        self.geometry("800x500")
+        self.geometry("900x600")
+        self.configure(bg="#FFFCFC")
+        
+        # Initialize data handlers
+        self.collector = WeatherDataCollector()
+        self.storage = WeatherStorage()
+        
         self.create_widgets()
 
     def create_widgets(self):
-        # Top: City selection
-        top_frame = tk.Frame(self)
-        top_frame.pack(fill="x", padx=10, pady=10)
-
-        tk.Label(top_frame, text="City:").pack(side="left")
-        self.city_entry = tk.Entry(top_frame)
-        self.city_entry.pack(side="left", padx=5)
-        self.refresh_btn = tk.Button(top_frame, text="Refresh")
-        self.refresh_btn.pack(side="left", padx=5)
-        self.refresh_btn.config(command=self.load_weather)
-
-        # Center: Weather display
-        self.weather_frame = tk.Frame(self)
-        self.weather_frame.pack(fill="both", expand=True, padx=10, pady=10)
-        self.temp_label = tk.Label(self.weather_frame, text="Temperature: --")
-        self.temp_label.pack(anchor="w")
-        self.desc_label = tk.Label(self.weather_frame, text="Description: --")
-        self.desc_label.pack(anchor="w")
-        self.humidity_label = tk.Label(self.weather_frame, text="Humidity: --")
-        self.humidity_label.pack(anchor="w")
-
-    def load_weather(self):
-        city = self.city_entry.get()
-        collector = WeatherDataCollector()
-        storage = WeatherStorage()
-        try:
-            data = collector.fetch_weather(city)
-            self.temp_label.config(text=f"Temperature: {data['main']['temp']} °F")
-            self.desc_label.config(text=f"Description: {data['weather'][0]['description']}")
-            self.humidity_label.config(text=f"Humidity: {data['main']['humidity']}%")
-            storage.save(city, data)
-        except Exception as e:
-            self.temp_label.config(text="Temperature: --")
-            self.desc_label.config(text=f"Error: {e}")
-            self.humidity_label.config(text="Humidity: --")
+        # Create notebook for tabs
+        self.notebook = ttk.Notebook(self)
+        self.notebook.pack(fill="both", expand=True, padx=10, pady=10)
+        
+        # Create Current & Comparison tab
+        self.current_comparison_frame = ttk.Frame(self.notebook)
+        self.notebook.add(self.current_comparison_frame, text="Current & Comparison")
+        
+        # Initialize city comparison feature
+        self.city_comparison = CityComparison(
+            self.current_comparison_frame, 
+            self.collector, 
+            self.storage
+        )
+        
+        # Placeholder for future tabs
+        # self.create_history_tab()
+        # self.create_statistics_tab()
+    
+    def create_history_tab(self):
+        """Placeholder for future history tab"""
+        history_frame = ttk.Frame(self.notebook)
+        self.notebook.add(history_frame, text="History")
+        
+        placeholder_label = tk.Label(
+            history_frame, 
+            text="Weather History\n(Coming Soon)", 
+            font=('Arial', 16), 
+            fg='#666666'
+        )
+        placeholder_label.pack(expand=True)
+    
+    def create_statistics_tab(self):
+        """Placeholder for future statistics tab"""
+        stats_frame = ttk.Frame(self.notebook)
+        self.notebook.add(stats_frame, text="Statistics")
+        
+        placeholder_label = tk.Label(
+            stats_frame, 
+            text="Weather Statistics\n(Coming Soon)", 
+            font=('Arial', 16), 
+            fg='#666666'
+        )
+        placeholder_label.pack(expand=True)

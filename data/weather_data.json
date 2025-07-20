@@ -6,38 +6,38 @@
     },
     "weather": [
       {
-        "id": 701,
-        "main": "Mist",
-        "description": "mist",
-        "icon": "50d"
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01n"
       }
     ],
     "base": "stations",
     "main": {
-      "temp": 65.46,
-      "feels_like": 65.7,
-      "temp_min": 63.09,
-      "temp_max": 66.99,
-      "pressure": 1016,
-      "humidity": 85,
-      "sea_level": 1016,
+      "temp": 72.27,
+      "feels_like": 72.72,
+      "temp_min": 69.31,
+      "temp_max": 73.99,
+      "pressure": 1014,
+      "humidity": 75,
+      "sea_level": 1014,
       "grnd_level": 1011
     },
-    "visibility": 4828,
+    "visibility": 10000,
     "wind": {
-      "speed": 5.75,
-      "deg": 40
+      "speed": 9.22,
+      "deg": 200
     },
     "clouds": {
-      "all": 100
+      "all": 0
     },
-    "dt": 1752188400,
+    "dt": 1752984631,
     "sys": {
       "type": 2,
       "id": 2013408,
       "country": "US",
-      "sunrise": 1752139012,
-      "sunset": 1752193320
+      "sunrise": 1753003510,
+      "sunset": 1753056941
     },
     "timezone": -14400,
     "id": 4930956,
@@ -235,38 +235,39 @@
     },
     "weather": [
       {
-        "id": 800,
-        "main": "Clear",
-        "description": "clear sky",
-        "icon": "01d"
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04n"
       }
     ],
     "base": "stations",
     "main": {
-      "temp": 80.19,
-      "feels_like": 83.52,
-      "temp_min": 77.95,
-      "temp_max": 83.19,
-      "pressure": 1013,
-      "humidity": 72,
-      "sea_level": 1013,
-      "grnd_level": 1012
+      "temp": 76.26,
+      "feels_like": 77.34,
+      "temp_min": 74.95,
+      "temp_max": 77.34,
+      "pressure": 1015,
+      "humidity": 80,
+      "sea_level": 1015,
+      "grnd_level": 1013
     },
     "visibility": 10000,
     "wind": {
-      "speed": 10.36,
-      "deg": 170
+      "speed": 11.01,
+      "deg": 171,
+      "gust": 14
     },
     "clouds": {
-      "all": 0
+      "all": 100
     },
-    "dt": 1752188227,
+    "dt": 1752984774,
     "sys": {
       "type": 2,
       "id": 2008776,
       "country": "US",
-      "sunrise": 1752140038,
-      "sunset": 1752193708
+      "sunrise": 1753004508,
+      "sunset": 1753057357
     },
     "timezone": -14400,
     "id": 5128581,
@@ -326,38 +327,38 @@
     },
     "weather": [
       {
-        "id": 800,
-        "main": "Clear",
-        "description": "clear sky",
-        "icon": "01d"
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04n"
       }
     ],
     "base": "stations",
     "main": {
-      "temp": 79.16,
-      "feels_like": 79.16,
-      "temp_min": 76.89,
-      "temp_max": 81.79,
-      "pressure": 1013,
-      "humidity": 76,
-      "sea_level": 1013,
-      "grnd_level": 1008
+      "temp": 75.02,
+      "feels_like": 76.08,
+      "temp_min": 72.93,
+      "temp_max": 76.91,
+      "pressure": 1016,
+      "humidity": 82,
+      "sea_level": 1016,
+      "grnd_level": 1011
     },
     "visibility": 10000,
     "wind": {
-      "speed": 4.61,
-      "deg": 170
+      "speed": 5.75,
+      "deg": 130
     },
     "clouds": {
-      "all": 0
+      "all": 100
     },
-    "dt": 1752188481,
+    "dt": 1752973210,
     "sys": {
       "type": 2,
       "id": 2006070,
       "country": "US",
-      "sunrise": 1752140258,
-      "sunset": 1752193725
+      "sunrise": 1752918269,
+      "sunset": 1752971025
     },
     "timezone": -14400,
     "id": 5101760,
@@ -562,34 +563,394 @@
     ],
     "base": "stations",
     "main": {
-      "temp": 80.94,
-      "feels_like": 87.08,
-      "temp_min": 79.25,
-      "temp_max": 82.49,
-      "pressure": 1013,
-      "humidity": 84,
-      "sea_level": 1013,
-      "grnd_level": 1012
+      "temp": 86.59,
+      "feels_like": 97.99,
+      "temp_min": 85.01,
+      "temp_max": 88.25,
+      "pressure": 1015,
+      "humidity": 73,
+      "sea_level": 1015,
+      "grnd_level": 1014
     },
     "visibility": 10000,
     "wind": {
-      "speed": 6.91,
+      "speed": 11.5,
       "deg": 130
     },
     "clouds": {
       "all": 0
     },
-    "dt": 1752190541,
+    "dt": 1752357601,
     "sys": {
       "type": 1,
       "id": 5056,
       "country": "US",
-      "sunrise": 1752140951,
-      "sunset": 1752193988
+      "sunrise": 1752313833,
+      "sunset": 1752366738
     },
     "timezone": -14400,
     "id": 4347242,
     "name": "Annapolis",
+    "cod": 200
+  },
+  "hiroshima": {
+    "coord": {
+      "lon": 132.4594,
+      "lat": 34.3963
+    },
+    "weather": [
+      {
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 85.46,
+      "feels_like": 97.23,
+      "temp_min": 85.46,
+      "temp_max": 85.46,
+      "pressure": 1006,
+      "humidity": 78,
+      "sea_level": 1006,
+      "grnd_level": 985
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 1.86,
+      "deg": 94,
+      "gust": 2.35
+    },
+    "clouds": {
+      "all": 94
+    },
+    "dt": 1752360641,
+    "sys": {
+      "country": "JP",
+      "sunrise": 1752350843,
+      "sunset": 1752402236
+    },
+    "timezone": 32400,
+    "id": 1862415,
+    "name": "Hiroshima",
+    "cod": 200
+  },
+  "tokyo": {
+    "coord": {
+      "lon": 139.6917,
+      "lat": 35.6895
+    },
+    "weather": [
+      {
+        "id": 803,
+        "main": "Clouds",
+        "description": "broken clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 76.37,
+      "feels_like": 77.09,
+      "temp_min": 74.66,
+      "temp_max": 78.58,
+      "pressure": 1009,
+      "humidity": 72,
+      "sea_level": 1009,
+      "grnd_level": 1007
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 4.61,
+      "deg": 40
+    },
+    "clouds": {
+      "all": 75
+    },
+    "dt": 1752360632,
+    "sys": {
+      "type": 2,
+      "id": 268395,
+      "country": "JP",
+      "sunrise": 1752348908,
+      "sunset": 1752400700
+    },
+    "timezone": 32400,
+    "id": 1850144,
+    "name": "Tokyo",
+    "cod": 200
+  },
+  "sydney": {
+    "coord": {
+      "lon": 151.2073,
+      "lat": -33.8679
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 46.92,
+      "feels_like": 42.51,
+      "temp_min": 44.74,
+      "temp_max": 50.4,
+      "pressure": 1021,
+      "humidity": 80,
+      "sea_level": 1021,
+      "grnd_level": 1016
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 9.22,
+      "deg": 330
+    },
+    "clouds": {
+      "all": 0
+    },
+    "dt": 1752360612,
+    "sys": {
+      "type": 2,
+      "id": 2091046,
+      "country": "AU",
+      "sunrise": 1752353921,
+      "sunset": 1752390158
+    },
+    "timezone": 36000,
+    "id": 2147714,
+    "name": "Sydney",
+    "cod": 200
+  },
+  "denmark": {
+    "coord": {
+      "lon": -81.1423,
+      "lat": 33.3227
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 83.08,
+      "feels_like": 90.59,
+      "temp_min": 82.9,
+      "temp_max": 86.02,
+      "pressure": 1019,
+      "humidity": 77,
+      "sea_level": 1019,
+      "grnd_level": 1011
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 5.99,
+      "deg": 226
+    },
+    "clouds": {
+      "all": 10
+    },
+    "dt": 1752799920,
+    "sys": {
+      "type": 2,
+      "id": 2101078,
+      "country": "US",
+      "sunrise": 1752748035,
+      "sunset": 1752798829
+    },
+    "timezone": -14400,
+    "id": 4576544,
+    "name": "Denmark",
+    "cod": 200
+  },
+  "Havre de grace": {
+    "coord": {
+      "lon": -76.0916,
+      "lat": 39.5493
+    },
+    "weather": [
+      {
+        "id": 801,
+        "main": "Clouds",
+        "description": "few clouds",
+        "icon": "02n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 84.94,
+      "feels_like": 97.52,
+      "temp_min": 82.67,
+      "temp_max": 86.61,
+      "pressure": 1012,
+      "humidity": 82,
+      "sea_level": 1012,
+      "grnd_level": 1007
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 8.99,
+      "deg": 275,
+      "gust": 26.98
+    },
+    "clouds": {
+      "all": 20
+    },
+    "dt": 1752799971,
+    "sys": {
+      "type": 2,
+      "id": 2020856,
+      "country": "US",
+      "sunrise": 1752745860,
+      "sunset": 1752798580
+    },
+    "timezone": -14400,
+    "id": 4357617,
+    "name": "Havre de Grace",
+    "cod": 200
+  },
+  "New york": {
+    "coord": {
+      "lon": -74.006,
+      "lat": 40.7143
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 79.81,
+      "feels_like": 79.81,
+      "temp_min": 75.94,
+      "temp_max": 81.34,
+      "pressure": 1017,
+      "humidity": 52,
+      "sea_level": 1017,
+      "grnd_level": 1017
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 9.22,
+      "deg": 50
+    },
+    "clouds": {
+      "all": 0
+    },
+    "dt": 1752886143,
+    "sys": {
+      "type": 2,
+      "id": 2008776,
+      "country": "US",
+      "sunrise": 1752831606,
+      "sunset": 1752884642
+    },
+    "timezone": -14400,
+    "id": 5128581,
+    "name": "New York",
+    "cod": 200
+  },
+  "charlotte": {
+    "coord": {
+      "lon": -80.8431,
+      "lat": 35.2271
+    },
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clouds",
+        "description": "scattered clouds",
+        "icon": "03n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 81.73,
+      "feels_like": 85.95,
+      "temp_min": 79.72,
+      "temp_max": 83.88,
+      "pressure": 1016,
+      "humidity": 70,
+      "sea_level": 1016,
+      "grnd_level": 991
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 6.91,
+      "deg": 240
+    },
+    "clouds": {
+      "all": 40
+    },
+    "dt": 1752983137,
+    "sys": {
+      "type": 2,
+      "id": 2007844,
+      "country": "US",
+      "sunrise": 1752920569,
+      "sunset": 1752971770
+    },
+    "timezone": -14400,
+    "id": 4460243,
+    "name": "Charlotte",
+    "cod": 200
+  },
+  "houston": {
+    "coord": {
+      "lon": -95.3633,
+      "lat": 29.7633
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 84.47,
+      "feels_like": 94.48,
+      "temp_min": 81.97,
+      "temp_max": 86.02,
+      "pressure": 1017,
+      "humidity": 78,
+      "sea_level": 1017,
+      "grnd_level": 1016
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 11.5,
+      "deg": 160
+    },
+    "clouds": {
+      "all": 0
+    },
+    "dt": 1752981805,
+    "sys": {
+      "type": 2,
+      "id": 2001415,
+      "country": "US",
+      "sunrise": 1752924797,
+      "sunset": 1752974512
+    },
+    "timezone": -18000,
+    "id": 4699066,
+    "name": "Houston",
     "cod": 200
   }
 }

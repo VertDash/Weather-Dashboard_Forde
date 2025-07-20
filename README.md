@@ -2,7 +2,7 @@
     A simple weather dashboard app that lets you search for a city and see the current weather using the OpenWeatherMap API. The app is built with Python and Tkinter, and saves weather data for offline use.
 
 ## Project structure 
-'''
+```
 Weather-Dashboard-Forde/
 │
 ├── main.py                  # App entry point
@@ -31,7 +31,7 @@ Weather-Dashboard-Forde/
 │
 └── screenshots/
     └── ...                         # UI mockups/screenshots
-'''
+```
 
 ## Wireframes 
 
