@@ -24,7 +24,7 @@ class WeatherApp(tk.Tk):
 
     def create_widgets(self):
         
-        # Create a custom style for notebook tabs
+        # Custom style for notebook tabs
         style = ttk.Style(self)
         style.theme_use('alt')
         style.configure('TNotebook.Tab', foreground='black', background='#FFFCFC')
@@ -37,7 +37,7 @@ class WeatherApp(tk.Tk):
         self.current_comparison_frame = ttk.Frame(self.notebook)
         self.notebook.add(self.current_comparison_frame, text="Current & Comparison")
         
-        # Initialize city comparison feature
+        # City comparison feature
         self.city_comparison = CityComparison(
             self.current_comparison_frame, 
             self.collector, 
