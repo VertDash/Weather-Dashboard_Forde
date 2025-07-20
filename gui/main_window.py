@@ -23,6 +23,12 @@ class WeatherApp(tk.Tk):
         self.create_widgets()
 
     def create_widgets(self):
+        
+        # Create a custom style for notebook tabs
+        style = ttk.Style(self)
+        style.theme_use('alt')
+        style.configure('TNotebook.Tab', foreground='black', background='#FFFCFC')
+
         # Create notebook for tabs
         self.notebook = ttk.Notebook(self)
         self.notebook.pack(fill="both", expand=True, padx=10, pady=10)
