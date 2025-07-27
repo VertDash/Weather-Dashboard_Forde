@@ -1,4 +1,7 @@
 import tkinter as tk
+from features.weather_icons import get_weather_icon
+from features.animated_weather_icons import AnimatedWeatherIcon
+
 
 class CityComparison:
     def __init__(self, parent_frame, collector, storage):
@@ -8,6 +11,9 @@ class CityComparison:
         
         # Store weather data for comparison
         self.weather_data = {}
+
+        # Animation controller for main city icon
+        self.main_icon_animator = None
         
         # Create the comparison interface
         self.create_comparison_interface()
@@ -41,6 +47,10 @@ class CityComparison:
         # Left: Current Weather Summary
         self.current_summary_frame = tk.Frame(main_weather_frame, bg='#E8F5E8', relief='ridge', bd=2)
         self.current_summary_frame.pack(side="left", fill="both", expand=True, padx=(0, 10))
+
+        self.main_icon_label = tk.Label(self.current_summary_frame, text="", font=('Arial', 48), bg='#E8F5E8')
+        self.main_icon_label.pack(pady=(0, 10))
+
 
         self.city_label = tk.Label(self.current_summary_frame, text="City, State", font=('Arial', 16, 'bold'), bg='#E8F5E8', fg='black')
         self.city_label.pack(pady=(10, 5))
@@ -116,9 +126,10 @@ class CityComparison:
                               bg=bg_color, fg='#333333')
         title_label.pack(pady=(10, 5))
         
-        # Weather icon placeholder (removed for now)
-        # icon_label = tk.Label(card_frame, text="☀️", font=('Arial', 48), bg=bg_color)
-        # icon_label.pack(pady=(0, 10))
+        # Weather icon
+        icon_label = tk.Label(card_frame, text="", font=('Arial', 48), bg=bg_color)
+        icon_label.pack(pady=(0, 10))
+        card_frame.icon_label = icon_label
         
         # Temperature
         temp_label = tk.Label(card_frame, text="--°F", font=('Arial', 28, 'bold'), 
@@ -153,7 +164,7 @@ class CityComparison:
         
         # Store references to labels for updates (icon removed for now)
         card_frame.title_label = title_label
-        # card_frame.icon_label = icon_label
+        card_frame.icon_label = icon_label
         card_frame.temp_label = temp_label
         card_frame.desc_label = desc_label
         card_frame.feels_like_label = feels_like_label
@@ -209,7 +220,7 @@ class CityComparison:
         """Update weather display for a city"""
         if error:
             weather_frame.title_label.config(text=f"{city_name}")
-            # weather_frame.icon_label.config(text="❌")
+            weather_frame.icon_label.config(text="❌")
             weather_frame.temp_label.config(text="--°F")
             weather_frame.desc_label.config(text=f"Error: {error}")
             weather_frame.feels_like_label.config(text="Feels like: --")
@@ -222,8 +233,8 @@ class CityComparison:
         weather_frame.title_label.config(text=city_name.title())
         
         # Update weather icon (removed for now)
-        # weather_icon = self.get_weather_icon(data['weather'][0]['main'])
-        # weather_frame.icon_label.config(text=weather_icon)
+        weather_icon = get_weather_icon(data['weather'][0]['main'])
+        weather_frame.icon_label.config(text=weather_icon)
         
         # Update temperature
         temp_f = data['main']['temp']
@@ -244,33 +255,36 @@ class CityComparison:
         weather_frame.wind_label.config(text=f"Wind: {wind_speed} mph")
         weather_frame.pressure_label.config(text=f"Pressure: {pressure} hPa")
     
-    def get_weather_icon(self, weather_condition):
-        """Return appropriate emoji for weather condition"""
-        icons = {
-            'Clear': '☀️',
-            'Clouds': '☁️',
-            'Rain': '🌧️',
-            'Drizzle': '🌦️',
-            'Thunderstorm': '⛈️',
-            'Snow': '🌨️',
-            'Mist': '🌫️',
-            'Fog': '🌫️',
-            'Haze': '🌫️'
-        }
-        return icons.get(weather_condition, '🌤️')
     
     def load_main_weather(self):
+        """Load weather data for main city with animated icon"""
         city = self.main_city_entry.get().strip()
         button = self.main_city_btn
 
         if not city:
             return
+        
+
+        # Stop any existing animation
+        if self.main_icon_animator:
+            self.main_icon_animator.stop_animation()
+            self.main_icon_animator = None
 
         button.config(text="Loading...", state='disabled')
         button.update()
 
         try:
             data = self.collector.fetch_weather(city)
+
+             # Start animated icon for main city
+            weather_main = data['weather'][0]['main']
+            self.main_icon_animator = AnimatedWeatherIcon(self.main_icon_label)
+            self.main_icon_animator.start_animation(weather_main)
+
+            # Update icon
+            #weather_icon = get_weather_icon(data['weather'][0]['main'])
+            #self.main_icon_label.config(text=weather_icon)
+            
             # Update summary
             self.city_label.config(text=city.title())
             self.temp_label.config(text=f"{data['main']['temp']:.0f}°F")
@@ -284,6 +298,12 @@ class CityComparison:
             self.pressure_label.config(text=f"Pressure: {data['main']['pressure']} hPa")
             self.storage.save(city, data)
         except Exception as e:
+            # Stop animation on error
+            if self.main_icon_animator:
+                self.main_icon_animator.stop_animation()
+                self.main_icon_animator = None
+
+            self.main_icon_label.config(text="❌")
             self.city_label.config(text=city.title())
             self.temp_label.config(text="--°F")
             self.desc_label.config(text=f"Error: {e}")
@@ -299,3 +319,8 @@ class CityComparison:
     def format_time(self, timestamp):
         import datetime
         return datetime.datetime.fromtimestamp(timestamp).strftime('%I:%M %p')
+    
+    def __del__(self):
+        """Cleanup animations when object is destroyed"""
+        if self.main_icon_animator:
+            self.main_icon_animator.stop_animation()

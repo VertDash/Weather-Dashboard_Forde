@@ -3,6 +3,7 @@ from tkinter import ttk
 from core.weather_data_collector import WeatherDataCollector
 from core.storage import WeatherStorage 
 from features.city_comparison import CityComparison
+from features.simple_stats import WeatherRewind
 
 
 # The main window that users see and interact with
@@ -45,16 +46,23 @@ class WeatherApp(tk.Tk):
         )
         
         # Placeholder for future tabs
-        # self.create_history_tab()
+        # Create Weather Rewind tab
+        self.create_weather_rewind_tab()
         # self.create_statistics_tab()
     
-    def create_history_tab(self):
-        """Placeholder for future history tab"""
-        history_frame = ttk.Frame(self.notebook)
-        self.notebook.add(history_frame, text="History")
+    def create_weather_rewind_tab(self):
+        """Create the Weather Rewind tab"""
+        rewind_frame = ttk.Frame(self.notebook)
+        self.notebook.add(rewind_frame, text="Weather Rewind")
         
+        # Initialize Weather Rewind feature
+        self.weather_rewind = WeatherRewind(
+            rewind_frame,
+            self.collector,
+            self.storage
+        )
         placeholder_label = tk.Label(
-            history_frame, 
+            #history_frame, 
             text="Weather History\n(Coming Soon)", 
             font=('Arial', 16), 
             fg='#666666'
