@@ -2,10 +2,12 @@ import tkinter as tk
 from tkinter import ttk
 from datetime import datetime, timedelta
 import requests
+from requests.exceptions import Timeout, ConnectionError, RequestException
 import pandas as pd
 from meteostat import Point, Daily
 
 class WeatherRewind:
+    # set up for weather rewind. interface. get data and save data
     def __init__(self, parent_frame, collector, storage):
         self.parent_frame = parent_frame
         self.collector = collector
@@ -18,8 +20,8 @@ class WeatherRewind:
         self.create_rewind_interface()
     
     def create_rewind_interface(self):
-        """Create the Weather Rewind interface matching your wireframe"""
-        # Main container
+        """Build the whole Weather Rewind screen that users will see"""
+        # Make main container
         main_frame = tk.Frame(self.parent_frame, bg='#FFFCFC')
         main_frame.pack(fill="both", expand=True, padx=10, pady=10)
         
@@ -27,8 +29,12 @@ class WeatherRewind:
         title_label = tk.Label(main_frame, text="Weather Rewind", 
                               font=('Arial', 18, 'bold'), bg='#FFFCFC', fg='black')
         title_label.pack(pady=(0, 20))
+
+        self.status_label = tk.Label(main_frame, text="", 
+                            font=('Arial', 10), bg='#FFFCFC', fg='red')
+        self.status_label.pack(pady=(0, 10))
         
-        # Location input section
+        # User Location input section
         location_frame = tk.LabelFrame(main_frame, text="Location", 
                                      font=('Arial', 12, 'bold'), bg='#FFFCFC', 
                                      fg='black', relief='ridge', bd=2)
@@ -37,12 +43,15 @@ class WeatherRewind:
         input_frame = tk.Frame(location_frame, bg='#FFFCFC')
         input_frame.pack(fill="x", padx=10, pady=10)
         
+        #City label
         tk.Label(input_frame, text="City:", font=('Arial', 12, 'bold'), 
                 bg='#FFFCFC', fg='black').pack(side="left")
         
+        #text entry box
         self.city_entry = tk.Entry(input_frame, font=('Arial', 11), width=30)
         self.city_entry.pack(side="left", padx=(10, 10), fill="x", expand=True)
         
+        #get weather button
         self.get_weather_btn = tk.Button(input_frame, text="Get Weather",
                                        command=self.load_historical_data,
                                        bg='#4CAF50', fg='black', font=('Arial', 10, 'bold'))
@@ -62,14 +71,14 @@ class WeatherRewind:
         self.create_this_day_last_year_section(content_frame)
     
     def create_last_7_days_section(self, parent):
-        """Create the Last 7 Days table section"""
-        # Frame for Last 7 Days
+        """Create the Last 7 Days section"""
+        # Frame for 'Last 7 Days' section
         last_7_frame = tk.LabelFrame(parent, text="Last 7 Days", 
                                    font=('Arial', 12, 'bold'), bg='#FFFCFC', 
                                    fg='black', relief='ridge', bd=2)
         last_7_frame.pack(side="left", fill="both", expand=True, padx=(0, 5))
         
-        # Create table with headers
+        # Create the actual table inside the frame
         table_frame = tk.Frame(last_7_frame, bg='white', relief='sunken', bd=1)
         table_frame.pack(fill="both", expand=True, padx=10, pady=10)
         
@@ -82,15 +91,15 @@ class WeatherRewind:
                                   bg=color, relief='ridge', bd=1)
             header_label.grid(row=0, column=i, sticky="ew", ipadx=10, ipady=5)
         
-        # Configure grid weights
+        # Create each header cell
         for i in range(3):
             table_frame.grid_columnconfigure(i, weight=1)
         
-        # Store reference for data rows
+        # Keep refs to update the table 
         self.last_7_table = table_frame
         self.last_7_rows = []
         
-        # Create 7 data rows
+        # Create 7 empty rows
         for row_idx in range(1, 8):
             row_data = []
             for col in range(3):
@@ -101,17 +110,17 @@ class WeatherRewind:
             self.last_7_rows.append(row_data)
     
     def create_30_day_summary_section(self, parent):
-        """Create the Last 30 Days Summary section"""
+        """Build the section that shows monthly weather statistics"""
         summary_frame = tk.LabelFrame(parent, text="Last 30 Days Summary",
                                     font=('Arial', 12, 'bold'), bg='#FFFCFC',
                                     fg='black', relief='ridge', bd=2)
         summary_frame.pack(side="left", fill="both", expand=True, padx=(5, 5))
         
-        # Summary statistics
+        # Container for all the statistics
         stats_frame = tk.Frame(summary_frame, bg='#FFFCFC')
         stats_frame.pack(fill="both", expand=True, padx=15, pady=15)
         
-        # Create labels for each statistic
+        # List of all the stats that will be shown 
         stats_data = [
             ("Average High:", "76°F"),
             ("Average Low:", "62°F"),
@@ -123,7 +132,7 @@ class WeatherRewind:
         
         self.summary_labels = {}
         for i, (label_text, default_value) in enumerate(stats_data):
-            # Create frame for each row
+            # Create frame for each stat row
             row_frame = tk.Frame(stats_frame, bg='#FFFCFC')
             row_frame.pack(fill="x", pady=3)
             
@@ -141,16 +150,17 @@ class WeatherRewind:
             self.summary_labels[key] = value_label
     
     def create_this_day_last_year_section(self, parent):
-        """Create the This Day Last Year section"""
+        """This Day Last Year section"""
+        # Make a box for last year's weather
         last_year_frame = tk.LabelFrame(parent, text="This Day Last Year",
                                       font=('Arial', 12, 'bold'), bg='#FFFCFC',
                                       fg='black', relief='ridge', bd=2)
         last_year_frame.pack(side="right", fill="both", expand=True, padx=(5, 0))
-        
+        # Container for the content
         content_frame = tk.Frame(last_year_frame, bg='#FFFCFC')
         content_frame.pack(fill="both", expand=True, padx=15, pady=15)
         
-        # Date display
+        # Show the date from last year
         self.last_year_date_label = tk.Label(content_frame, text="July 25, 2024",
                                            font=('Arial', 14, 'bold'), bg='#FFFCFC', fg='black')
         self.last_year_date_label.pack(pady=(10, 15))
@@ -171,7 +181,7 @@ class WeatherRewind:
         self.comparison_label.pack()
     
     def get_coordinates_from_city(self, city_name):
-        """Get latitude and longitude for a city using OpenWeatherMap geocoding"""
+        """Turn a city name into map coordinates with error handling"""
         try:
             geocoding_url = "http://api.openweathermap.org/geo/1.0/direct"
             params = {
@@ -180,22 +190,48 @@ class WeatherRewind:
                 "appid": self.collector.api_key
             }
             
-            response = requests.get(geocoding_url, params=params, timeout=5)
+            response = requests.get(geocoding_url, params=params, timeout=10)
+            
+            # Handle specific HTTP status codes
+            if response.status_code == 401:
+                raise Exception("Invalid API key")
+            elif response.status_code == 429:
+                raise Exception("Too many requests. Please wait and try again.")
+            elif response.status_code == 404:
+                raise Exception("Geocoding service unavailable")
+            
             response.raise_for_status()
             
             data = response.json()
-            if data:
-                return data[0]['lat'], data[0]['lon']
-            else:
-                raise ValueError("City not found")
-                
+            if not data:
+                raise ValueError(f"City '{city_name}' not found. Please check the spelling.")
+            
+            return data[0]['lat'], data[0]['lon']
+            
+        except requests.exceptions.Timeout:
+            raise Exception("Request timed out. Check your internet connection.")
+        except requests.exceptions.ConnectionError:
+            raise Exception("No internet connection. Please check your network.")
+        except requests.exceptions.RequestException as e:
+            raise Exception(f"Network error: {str(e)}")
+        except ValueError as ve:
+            raise ve  # Re-raise ValueError as-is
         except Exception as e:
-            raise Exception(f"Failed to get coordinates: {e}")
-    
+            if "Invalid API key" in str(e) or "Too many requests" in str(e):
+                raise e  # Re-raise specific API errors
+            raise Exception(f"Failed to get coordinates: {str(e)}")
+
     def load_historical_data(self):
-        """Load and display historical weather data"""
+        """Load historical data with error handling"""  
         city = self.city_entry.get().strip()
+        
+        # Validate input
         if not city:
+            self.show_error_with_message("Please enter a city name")
+            return
+        
+        if len(city) < 2:
+            self.show_error_with_message("City name too short")
             return
         
         # Show loading state
@@ -203,34 +239,52 @@ class WeatherRewind:
         self.get_weather_btn.update()
         
         try:
+            
             # Get coordinates for the city
             lat, lon = self.get_coordinates_from_city(city)
             self.location_coords = Point(lat, lon)
             self.current_city = city
+            self.clear_status_message()
             
             # Load different time periods
             self.load_7_day_data()
             self.load_30_day_summary()
             self.load_this_day_last_year()
             
-        except Exception as e:
-            self.show_error(str(e))
+        except ValueError as ve:
+            # Handle city not found errors
+            self.show_error_with_message(str(ve))
             
+        except Exception as e:
+            error_msg = str(e)
+            if "internet connection" in error_msg.lower():
+                self.show_error_with_message("No internet connection. Please check your network.")
+            elif "timeout" in error_msg.lower():
+                self.show_error_with_message("Request timed out. Please try again.")
+            elif "api key" in error_msg.lower():
+                self.show_error_with_message("API authentication error. Please contact support.")
+            elif "too many requests" in error_msg.lower():
+                self.show_error_with_message("Too many requests. Please wait a moment and try again.")
+            else:
+                self.show_error_with_message(f"Error loading weather data: {error_msg}")
+                
         finally:
             self.get_weather_btn.config(text="Get Weather", state='normal')
-    
+        
     def load_7_day_data(self):
         """Load and display 7-day weather data"""
         print("Starting to load 7-day data...")
         print(f"Location coordinates: {self.location_coords}")
         
         try:
+            # Figure out the date range we want 
             today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
             end_date = today
             start_date = end_date - timedelta(days=6)
             
             print(f"Date range: {start_date} to {end_date}")
             
+             # Ask Meteostat for the historical weather data
             data = Daily(self.location_coords, start_date, end_date)
             df = data.fetch()
             
@@ -238,11 +292,14 @@ class WeatherRewind:
             print(f"DataFrame columns: {df.columns.tolist()}")
             print(f"DataFrame index: {df.index.tolist()}")
             
+            # Make sure it actually got some data
             if df.empty:
                 raise ValueError("No historical data available")
 
+            # store processed weather data here
             self.weather_data = []
 
+            # Go through each day in the data
             for date, row in df.iterrows():
                 print(f"Processing date: {date}")
                 print(f"Raw row data: {row.to_dict()}")
@@ -263,14 +320,14 @@ class WeatherRewind:
                     'snow': snow
                 }
 
-                # Get human-readable weather description
+                # Figure out simple description
                 weather_desc = self.get_weather_description_simple(day_data)
                 day_data['description'] = weather_desc
                 
                 print(f"Processed day_data: {day_data}")
                 self.weather_data.append(day_data)
 
-            # Sort data by date (newest first for display)
+            # Sort the data so the newest day is first
             self.weather_data.sort(key=lambda x: x['date'], reverse=True)
             
             print(f"Successfully loaded {len(self.weather_data)} days of data")
@@ -281,20 +338,27 @@ class WeatherRewind:
             self.loaded = True
             self.display_weather_table()
 
+        except ValueError as ve:
+            print(f"Data error in load_7_day_data: {ve}")
+            self.weather_data = []
+            self.loaded = False
+            self.display_weather_table()  
+
         except Exception as e:
             print(f"Error loading 7-day data: {e}")
             import traceback
             traceback.print_exc()
             self.weather_data = []
             self.loaded = False
-            # Make sure to still call display_weather_table to show empty data
+            # Still try to update the table (it shows empty data)
             self.display_weather_table()
-           
+            raise Exception(f"Failed to load 7-day weather history: {str(e)}")
 
     def display_weather_table(self):
         """Update the 7-day table with loaded weather data."""
         print(f"Displaying weather table with {len(self.weather_data)} items")
         
+        # go through each row in table 
         for i, row_widgets in enumerate(self.last_7_rows):
             print(f"Processing table row {i}")
             
@@ -308,6 +372,7 @@ class WeatherRewind:
                 elif i == 1:
                     date_str = "Yesterday"
                 else:
+                    # For older days, show it like "Jul 23"
                     try:
                         date_obj = datetime.strptime(day_data['date'], "%Y-%m-%d")
                         date_str = date_obj.strftime("%b %d")
@@ -320,7 +385,7 @@ class WeatherRewind:
                 temp_f = (temp_c * 9/5) + 32 if temp_c is not None else None
                 description = day_data.get('description', "--")
                 
-                # Update the cells
+                # Format the temperature
                 temp_text = f"{temp_f:.0f}°F" if temp_f else "--°F"
                 
                 print(f"  Setting: {date_str}, {temp_text}, {description}")
@@ -329,12 +394,13 @@ class WeatherRewind:
                 row_widgets[1].config(text=temp_text)
                 row_widgets[2].config(text=description)
                 
-                # Force update
+                # Update the three cells in this row
                 row_widgets[0].update()
                 row_widgets[1].update()
                 row_widgets[2].update()
                 
             else:
+                # No data for this row, so show dashes
                 print(f"  No data for row {i}, clearing")
                 row_widgets[0].config(text="--")
                 row_widgets[1].config(text="--°F")
@@ -343,24 +409,28 @@ class WeatherRewind:
         print("Table update complete")
 
     def load_30_day_summary(self):
-        """Load and display 30-day summary statistics"""
+        """Calculate stats for past 30 days"""
         try:
+            # Get data for the last 30 days
             today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
             end_date = today
             start_date = end_date - timedelta(days=29)
             
+            # Get the data from Meteostat
             data = Daily(self.location_coords, start_date, end_date)
             df = data.fetch()
+           
             
             if df.empty:
                 raise ValueError("No historical data available")
             
-            # Convert to simple data structures and calculate manually
+            # collect all the temperatures and weather info
             temps_high = []
             temps_low = []
             rainy_days = 0
             weather_types = {"Sunny": 0, "Rainy": 0, "Cloudy": 0, "Snowy": 0}
             
+            # Collect high and low temperatures
             for date, row in df.iterrows():
                 # Collect temperatures
                 if not pd.isna(row['tmax']):
@@ -383,7 +453,7 @@ class WeatherRewind:
                 if weather_desc in weather_types:
                     weather_types[weather_desc] += 1
             
-            # Calculate averages manually
+            # Calculate averages and extremes
             avg_high_c = sum(temps_high) / len(temps_high) if temps_high else None
             avg_low_c = sum(temps_low) / len(temps_low) if temps_low else None
             hottest_c = max(temps_high) if temps_high else None
@@ -398,7 +468,7 @@ class WeatherRewind:
             # Find most common weather
             most_common = max(weather_types, key=weather_types.get) if any(weather_types.values()) else "Sunny"
             
-            # Update labels
+            # Update labels with new values
             self.summary_labels['average_high'].config(
                 text=f"{avg_high_f:.0f}°F" if avg_high_f is not None else "--°F")
             self.summary_labels['average_low'].config(
@@ -410,6 +480,10 @@ class WeatherRewind:
             self.summary_labels['most_common'].config(text=most_common)
             self.summary_labels['rainy_days'].config(text=f"{rainy_days} days")
             
+        except ValueError as ve:
+            print(f"Data error in load_30_day_summary: {ve}")
+            self.clear_30_day_summary()
+
         except Exception as e:
             print(f"Error loading 30-day summary: {e}")
             self.clear_30_day_summary()
@@ -417,21 +491,28 @@ class WeatherRewind:
     def load_this_day_last_year(self):
         """Load and display weather from this day last year"""
         try:
+            # Figure out what date it was exactly one year ago
             today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
             last_year_date = today.replace(year=today.year - 1)
-            
+
+           # Get a few days around that date just in case the exact date has no data
             start_date = last_year_date - timedelta(days=2)
             end_date = last_year_date + timedelta(days=2)
             
+            # Get the historical data
             data = Daily(self.location_coords, start_date, end_date)
             df = data.fetch()
             
             if not df.empty:
+            # Try to get the exact date, or use the middle day if exact date isn't available
+
                 row = df.loc[last_year_date] if last_year_date in df.index else df.iloc[len(df) // 2]
                 
+                # Get temperature
                 temp_c = row['tavg'] if not pd.isna(row['tavg']) else row['tmax']
                 temp_f = (temp_c * 9/5) + 32 if not pd.isna(temp_c) else None
 
+                # Figure out the weather description
                 day_data = {
                     'tavg': row['tavg'] if not pd.isna(row['tavg']) else None,
                     'tmax': row['tmax'] if not pd.isna(row['tmax']) else None,
@@ -439,29 +520,36 @@ class WeatherRewind:
                     'snow': row['snow'] if not pd.isna(row['snow']) else 0
                 }
                 description = self.get_weather_description_simple(day_data)
-                
+                # Update the display
                 self.last_year_date_label.config(text=last_year_date.strftime("%B %d, %Y"))
                 self.last_year_temp_label.config(text=f"{temp_f:.0f}°F" if temp_f else "--°F")
                 self.last_year_desc_label.config(text=description)
+                # Compare with today's temperature
                 self.update_temperature_comparison(temp_f)
             else:
+                # No data available for last year
                 self.clear_last_year_section()
                 
+        except ValueError as ve:
+            print(f"Data error in load_this_day_last_year: {ve}")
+            self.clear_last_year_section()
+        
         except Exception as e:
             print(f"Error loading last year data: {e}")
             self.clear_last_year_section()
     
     def update_temperature_comparison(self, last_year_temp_f):
-        """Update the temperature comparison with current weather"""
+        """Compare last year's temperature with today's temperature"""
         try:
             if last_year_temp_f is None:
                 self.comparison_label.config(text="vs Today: --", fg='black')
                 return
-                
+            # Get today's current temperature    
             current_data = self.collector.fetch_weather(self.current_city)
             current_temp_f = current_data['main']['temp']
             temp_diff = current_temp_f - last_year_temp_f
             
+            # Show the comparison
             if abs(temp_diff) < 1:
                 self.comparison_label.config(text="vs Today: Same", fg='black')
             elif temp_diff > 0:
@@ -476,14 +564,14 @@ class WeatherRewind:
             self.comparison_label.config(text="vs Today: --", fg='black')
     
     def is_nan(self, value):
-        """Robust check for NaN, pd.NA, or None"""
+        """Check if a value is missing/empty"""
         try:
             return pd.isna(value)
         except:
             return True
     
     def get_weather_description_simple(self, day_data):
-        """Determine weather description from data"""
+        """Take weather data and turn it into a simple description like 'Sunny' or 'Rainy"""
         if day_data['prcp'] > 2:
             return "Rainy"
         elif day_data['snow'] > 0:
@@ -502,7 +590,7 @@ class WeatherRewind:
                 return "Clear"
     
     def clear_7_day_table(self):
-        """Clear the 7-day table on error"""
+        """Reset the 7-day table to show dashes (used when there's an error)"""
         print("Clearing 7-day table")
         for i, row_data in enumerate(self.last_7_rows):
             for j, cell in enumerate(row_data):
@@ -510,12 +598,12 @@ class WeatherRewind:
                 print(f"Cleared cell [{i}][{j}]")
     
     def clear_30_day_summary(self):
-        """Clear 30-day summary on error"""
+        """Reset the 30-day summary to show dashes"""
         for label in self.summary_labels.values():
             label.config(text="--")
     
     def clear_last_year_section(self):
-        """Clear last year section on error"""
+        """Reset the last year section when we can't get data"""
         today = datetime.now()
         today_date = today.date()
         last_year_date = today_date.replace(year=today_date.year - 1)
@@ -525,8 +613,28 @@ class WeatherRewind:
         self.comparison_label.config(text="vs Today: --", fg='black')
     
     def show_error(self, error_message):
-        """Display error message"""
+        """When something goes wrong, clear everything and show an error message"""
         self.clear_7_day_table()
         self.clear_30_day_summary()
         self.clear_last_year_section()
         print(f"Weather Rewind Error: {error_message}")
+
+    def show_error_with_message(self, message):
+        """Display user-friendly error message and clear all sections"""
+        self.clear_7_day_table()
+        self.clear_30_day_summary()
+        self.clear_last_year_section()
+        
+        # Show error message to user in the UI
+        self.status_label.config(text=f"Error: {message}", fg='red')
+        
+        print(f"Weather Rewind Error: {message}")
+
+    def show_success_message(self, message):
+        """Display success message to user"""
+        self.status_label.config(text=message, fg='green')
+
+    def clear_status_message(self):
+        """Clear any status messages"""
+        if hasattr(self, 'status_label'):
+            self.status_label.config(text="", fg='black')

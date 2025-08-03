@@ -6,41 +6,39 @@
     },
     "weather": [
       {
-        "id": 500,
-        "main": "Rain",
-        "description": "light rain",
-        "icon": "10d"
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01d"
       }
     ],
     "base": "stations",
     "main": {
-      "temp": 70.81,
-      "feels_like": 71.02,
-      "temp_min": 68.58,
-      "temp_max": 72.37,
-      "pressure": 1017,
-      "humidity": 73,
-      "sea_level": 1017,
-      "grnd_level": 1013
+      "temp": 84.29,
+      "feels_like": 83.43,
+      "temp_min": 80.15,
+      "temp_max": 87.01,
+      "pressure": 1019,
+      "humidity": 39,
+      "sea_level": 1019,
+      "grnd_level": 1015
     },
     "visibility": 10000,
     "wind": {
-      "speed": 9.22,
-      "deg": 210
-    },
-    "rain": {
-      "1h": 0.13
+      "speed": 1.99,
+      "deg": 250,
+      "gust": 1.99
     },
     "clouds": {
-      "all": 75
+      "all": 0
     },
-    "dt": 1753622401,
+    "dt": 1754247004,
     "sys": {
       "type": 2,
       "id": 2013408,
       "country": "US",
-      "sunrise": 1753608711,
-      "sunset": 1753661363
+      "sunrise": 1754213940,
+      "sunset": 1754265704
     },
     "timezone": -14400,
     "id": 4930956,
@@ -238,38 +236,38 @@
     },
     "weather": [
       {
-        "id": 721,
-        "main": "Haze",
-        "description": "haze",
+        "id": 711,
+        "main": "Smoke",
+        "description": "smoke",
         "icon": "50d"
       }
     ],
     "base": "stations",
     "main": {
-      "temp": 75.16,
-      "feels_like": 75.96,
-      "temp_min": 73.38,
-      "temp_max": 76.96,
-      "pressure": 1017,
-      "humidity": 76,
-      "sea_level": 1017,
-      "grnd_level": 1016
+      "temp": 83.64,
+      "feels_like": 82.15,
+      "temp_min": 81,
+      "temp_max": 85.82,
+      "pressure": 1020,
+      "humidity": 34,
+      "sea_level": 1020,
+      "grnd_level": 1018
     },
-    "visibility": 6437,
+    "visibility": 10000,
     "wind": {
-      "speed": 8.05,
-      "deg": 170
+      "speed": 6.91,
+      "deg": 110
     },
     "clouds": {
-      "all": 100
+      "all": 0
     },
-    "dt": 1753622271,
+    "dt": 1754247128,
     "sys": {
-      "type": 2,
-      "id": 2008776,
+      "type": 1,
+      "id": 4610,
       "country": "US",
-      "sunrise": 1753609685,
-      "sunset": 1753661804
+      "sunrise": 1754214886,
+      "sunset": 1754266171
     },
     "timezone": -14400,
     "id": 5128581,
@@ -962,38 +960,38 @@
     },
     "weather": [
       {
-        "id": 800,
-        "main": "Clear",
-        "description": "clear sky",
-        "icon": "01n"
+        "id": 761,
+        "main": "Dust",
+        "description": "dust",
+        "icon": "50n"
       }
     ],
     "base": "stations",
     "main": {
-      "temp": 83.84,
-      "feels_like": 81,
-      "temp_min": 79.74,
-      "temp_max": 86.41,
-      "pressure": 1009,
-      "humidity": 14,
-      "sea_level": 1009,
-      "grnd_level": 943
+      "temp": 98.94,
+      "feels_like": 93.34,
+      "temp_min": 95.72,
+      "temp_max": 100.11,
+      "pressure": 1010,
+      "humidity": 5,
+      "sea_level": 1010,
+      "grnd_level": 944
     },
     "visibility": 10000,
     "wind": {
-      "speed": 6.91,
-      "deg": 170
+      "speed": 12.66,
+      "deg": 200
     },
     "clouds": {
       "all": 0
     },
-    "dt": 1753599675,
+    "dt": 1754190293,
     "sys": {
       "type": 1,
       "id": 6171,
       "country": "US",
-      "sunrise": 1753620225,
-      "sunset": 1753671007
+      "sunrise": 1754138911,
+      "sunset": 1754189097
     },
     "timezone": -25200,
     "id": 5506956,
@@ -1144,38 +1142,38 @@
     },
     "weather": [
       {
-        "id": 804,
+        "id": 801,
         "main": "Clouds",
-        "description": "overcast clouds",
-        "icon": "04d"
+        "description": "few clouds",
+        "icon": "02d"
       }
     ],
     "base": "stations",
     "main": {
-      "temp": 60.71,
-      "feels_like": 60.1,
-      "temp_min": 59.02,
-      "temp_max": 62.15,
+      "temp": 73.2,
+      "feels_like": 73.65,
+      "temp_min": 71.51,
+      "temp_max": 75.16,
       "pressure": 1017,
-      "humidity": 77,
+      "humidity": 73,
       "sea_level": 1017,
-      "grnd_level": 1013
+      "grnd_level": 1014
     },
     "visibility": 10000,
     "wind": {
-      "speed": 5.75,
-      "deg": 320
+      "speed": 9.22,
+      "deg": 250
     },
     "clouds": {
-      "all": 93
+      "all": 20
     },
-    "dt": 1753599586,
+    "dt": 1754247042,
     "sys": {
       "type": 2,
-      "id": 2075535,
+      "id": 268730,
       "country": "GB",
-      "sunrise": 1753589811,
-      "sunset": 1753646215
+      "sunrise": 1754195240,
+      "sunset": 1754250357
     },
     "timezone": 3600,
     "id": 2643743,
@@ -1197,30 +1195,30 @@
     ],
     "base": "stations",
     "main": {
-      "temp": 72.37,
-      "feels_like": 71.94,
-      "temp_min": 67.73,
-      "temp_max": 77.18,
-      "pressure": 1017,
+      "temp": 71.2,
+      "feels_like": 70.66,
+      "temp_min": 66.33,
+      "temp_max": 78.39,
+      "pressure": 1018,
       "humidity": 56,
-      "sea_level": 1017,
+      "sea_level": 1018,
       "grnd_level": 993
     },
     "visibility": 10000,
     "wind": {
-      "speed": 14.97,
-      "deg": 290
+      "speed": 9.22,
+      "deg": 260
     },
     "clouds": {
       "all": 0
     },
-    "dt": 1753401550,
+    "dt": 1754247396,
     "sys": {
       "type": 2,
       "id": 2016191,
       "country": "US",
-      "sunrise": 1753362298,
-      "sunset": 1753413794
+      "sunrise": 1754226801,
+      "sunset": 1754277262
     },
     "timezone": -25200,
     "id": 5344157,
@@ -1503,37 +1501,40 @@
     },
     "weather": [
       {
-        "id": 804,
-        "main": "Clouds",
-        "description": "overcast clouds",
-        "icon": "04n"
+        "id": 500,
+        "main": "Rain",
+        "description": "light rain",
+        "icon": "10d"
       }
     ],
     "base": "stations",
     "main": {
-      "temp": 45.88,
-      "feels_like": 43.38,
-      "temp_min": 45.88,
-      "temp_max": 45.88,
-      "pressure": 1018,
-      "humidity": 90,
-      "sea_level": 1018,
-      "grnd_level": 717
+      "temp": 56.01,
+      "feels_like": 54.61,
+      "temp_min": 56.01,
+      "temp_max": 56.01,
+      "pressure": 1015,
+      "humidity": 70,
+      "sea_level": 1015,
+      "grnd_level": 719
     },
     "visibility": 10000,
     "wind": {
-      "speed": 5.01,
-      "deg": 134,
-      "gust": 5.61
+      "speed": 3.29,
+      "deg": 113,
+      "gust": 5.91
+    },
+    "rain": {
+      "1h": 0.47
     },
     "clouds": {
-      "all": 99
+      "all": 100
     },
-    "dt": 1753599733,
+    "dt": 1754247242,
     "sys": {
       "country": "EC",
-      "sunrise": 1753615055,
-      "sunset": 1753658612
+      "sunrise": 1754219838,
+      "sunset": 1754263397
     },
     "timezone": -18000,
     "id": 3652462,
@@ -1628,6 +1629,968 @@
     "timezone": -14400,
     "id": 3492627,
     "name": "El Batey",
+    "cod": 200
+  },
+  "new york, US, hi": {
+    "coord": {
+      "lon": -73.9866,
+      "lat": 40.7306
+    },
+    "weather": [
+      {
+        "id": 501,
+        "main": "Rain",
+        "description": "moderate rain",
+        "icon": "10d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 86.76,
+      "feels_like": 95.09,
+      "temp_min": 82.74,
+      "temp_max": 92.28,
+      "pressure": 1013,
+      "humidity": 66,
+      "sea_level": 1013,
+      "grnd_level": 1012
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 18.01,
+      "deg": 8,
+      "gust": 27
+    },
+    "rain": {
+      "1h": 2.48
+    },
+    "clouds": {
+      "all": 100
+    },
+    "dt": 1753916593,
+    "sys": {
+      "type": 1,
+      "id": 4610,
+      "country": "US",
+      "sunrise": 1753869048,
+      "sunset": 1753920826
+    },
+    "timezone": -14400,
+    "id": 5128581,
+    "name": "New York",
+    "cod": 200
+  },
+  "new york, us": {
+    "coord": {
+      "lon": -74.006,
+      "lat": 40.7143
+    },
+    "weather": [
+      {
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 86.68,
+      "feels_like": 94.93,
+      "temp_min": 82.74,
+      "temp_max": 92.28,
+      "pressure": 1013,
+      "humidity": 66,
+      "sea_level": 1013,
+      "grnd_level": 1012
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 18.01,
+      "deg": 8,
+      "gust": 27
+    },
+    "clouds": {
+      "all": 100
+    },
+    "dt": 1753916646,
+    "sys": {
+      "type": 1,
+      "id": 4610,
+      "country": "US",
+      "sunrise": 1753869055,
+      "sunset": 1753920828
+    },
+    "timezone": -14400,
+    "id": 5128581,
+    "name": "New York",
+    "cod": 200
+  },
+  "new york, usa": {
+    "coord": {
+      "lon": -74.006,
+      "lat": 40.7143
+    },
+    "weather": [
+      {
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 86.41,
+      "feels_like": 94.75,
+      "temp_min": 82.74,
+      "temp_max": 92.21,
+      "pressure": 1013,
+      "humidity": 67,
+      "sea_level": 1013,
+      "grnd_level": 1012
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 18.01,
+      "deg": 8,
+      "gust": 27
+    },
+    "clouds": {
+      "all": 100
+    },
+    "dt": 1753916824,
+    "sys": {
+      "type": 1,
+      "id": 4610,
+      "country": "US",
+      "sunrise": 1753869055,
+      "sunset": 1753920828
+    },
+    "timezone": -14400,
+    "id": 5128581,
+    "name": "New York",
+    "cod": 200
+  },
+  "new york, usa, north america": {
+    "coord": {
+      "lon": -73.9866,
+      "lat": 40.7306
+    },
+    "weather": [
+      {
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 85.86,
+      "feels_like": 93.47,
+      "temp_min": 82.26,
+      "temp_max": 91.35,
+      "pressure": 1013,
+      "humidity": 67,
+      "sea_level": 1013,
+      "grnd_level": 1012
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 18.01,
+      "deg": 8,
+      "gust": 27
+    },
+    "clouds": {
+      "all": 100
+    },
+    "dt": 1753916788,
+    "sys": {
+      "type": 1,
+      "id": 4610,
+      "country": "US",
+      "sunrise": 1753869048,
+      "sunset": 1753920826
+    },
+    "timezone": -14400,
+    "id": 5128581,
+    "name": "New York",
+    "cod": 200
+  },
+  "New York": {
+    "coord": {
+      "lon": -74.006,
+      "lat": 40.7143
+    },
+    "weather": [
+      {
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 86.41,
+      "feels_like": 94.75,
+      "temp_min": 82.74,
+      "temp_max": 92.21,
+      "pressure": 1013,
+      "humidity": 67,
+      "sea_level": 1013,
+      "grnd_level": 1012
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 18.01,
+      "deg": 8,
+      "gust": 27
+    },
+    "clouds": {
+      "all": 100
+    },
+    "dt": 1753916824,
+    "sys": {
+      "type": 1,
+      "id": 4610,
+      "country": "US",
+      "sunrise": 1753869055,
+      "sunset": 1753920828
+    },
+    "timezone": -14400,
+    "id": 5128581,
+    "name": "New York",
+    "cod": 200
+  },
+  "winnebago": {
+    "coord": {
+      "lon": -89.1834,
+      "lat": 42.35
+    },
+    "weather": [
+      {
+        "id": 500,
+        "main": "Rain",
+        "description": "light rain",
+        "icon": "10d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 66.88,
+      "feels_like": 67.73,
+      "temp_min": 64.8,
+      "temp_max": 67.86,
+      "pressure": 1019,
+      "humidity": 95,
+      "sea_level": 1019,
+      "grnd_level": 990
+    },
+    "visibility": 6793,
+    "wind": {
+      "speed": 11.54,
+      "deg": 48,
+      "gust": 22.19
+    },
+    "rain": {
+      "1h": 0.63
+    },
+    "clouds": {
+      "all": 100
+    },
+    "dt": 1753917139,
+    "sys": {
+      "type": 2,
+      "id": 2002144,
+      "country": "US",
+      "sunrise": 1753872447,
+      "sunset": 1753924721
+    },
+    "timezone": -18000,
+    "id": 4916845,
+    "name": "Winnebago",
+    "cod": 200
+  },
+  "beatrice": {
+    "coord": {
+      "lon": -96.747,
+      "lat": 40.2681
+    },
+    "weather": [
+      {
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 73.49,
+      "feels_like": 74.97,
+      "temp_min": 73.49,
+      "temp_max": 73.49,
+      "pressure": 1020,
+      "humidity": 94,
+      "sea_level": 1020,
+      "grnd_level": 970
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 0,
+      "deg": 0
+    },
+    "clouds": {
+      "all": 100
+    },
+    "dt": 1753917167,
+    "sys": {
+      "type": 1,
+      "id": 3437,
+      "country": "US",
+      "sunrise": 1753874583,
+      "sunset": 1753926215
+    },
+    "timezone": -18000,
+    "id": 5063646,
+    "name": "Beatrice",
+    "cod": 200
+  },
+  "largo": {
+    "coord": {
+      "lon": -82.7873,
+      "lat": 27.9095
+    },
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clouds",
+        "description": "scattered clouds",
+        "icon": "03d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 88.99,
+      "feels_like": 98.91,
+      "temp_min": 87.75,
+      "temp_max": 90.99,
+      "pressure": 1015,
+      "humidity": 63,
+      "sea_level": 1015,
+      "grnd_level": 1015
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 10.36,
+      "deg": 240,
+      "gust": 19.57
+    },
+    "clouds": {
+      "all": 40
+    },
+    "dt": 1753917206,
+    "sys": {
+      "type": 2,
+      "id": 2035993,
+      "country": "US",
+      "sunrise": 1753872770,
+      "sunset": 1753921328
+    },
+    "timezone": -14400,
+    "id": 4161580,
+    "name": "Largo",
+    "cod": 200
+  },
+  "largo, Maryland": {
+    "coord": {
+      "lon": -82.7873,
+      "lat": 27.9095
+    },
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clouds",
+        "description": "scattered clouds",
+        "icon": "03d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 88.99,
+      "feels_like": 98.91,
+      "temp_min": 87.75,
+      "temp_max": 90.99,
+      "pressure": 1015,
+      "humidity": 63,
+      "sea_level": 1015,
+      "grnd_level": 1015
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 10.36,
+      "deg": 240,
+      "gust": 19.57
+    },
+    "clouds": {
+      "all": 40
+    },
+    "dt": 1753917156,
+    "sys": {
+      "type": 2,
+      "id": 2035993,
+      "country": "US",
+      "sunrise": 1753872770,
+      "sunset": 1753921328
+    },
+    "timezone": -14400,
+    "id": 4161580,
+    "name": "Largo",
+    "cod": 200
+  },
+  "Mitchellville, Maryland": {
+    "coord": {
+      "lon": -76.7428,
+      "lat": 38.9251
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 87.87,
+      "feels_like": 100.47,
+      "temp_min": 86.16,
+      "temp_max": 90.88,
+      "pressure": 1014,
+      "humidity": 73,
+      "sea_level": 1014,
+      "grnd_level": 1008
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 4.61,
+      "deg": 150
+    },
+    "clouds": {
+      "all": 0
+    },
+    "dt": 1753917090,
+    "sys": {
+      "type": 2,
+      "id": 2100513,
+      "country": "US",
+      "sunrise": 1753869973,
+      "sunset": 1753921223
+    },
+    "timezone": -14400,
+    "id": 4362624,
+    "name": "Mitchellville",
+    "cod": 200
+  },
+  "largo, florida": {
+    "coord": {
+      "lon": -82.7873,
+      "lat": 27.9095
+    },
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clouds",
+        "description": "scattered clouds",
+        "icon": "03d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 88.99,
+      "feels_like": 98.91,
+      "temp_min": 87.75,
+      "temp_max": 90.99,
+      "pressure": 1015,
+      "humidity": 63,
+      "sea_level": 1015,
+      "grnd_level": 1015
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 10.36,
+      "deg": 240,
+      "gust": 19.57
+    },
+    "clouds": {
+      "all": 40
+    },
+    "dt": 1753917206,
+    "sys": {
+      "type": 2,
+      "id": 2035993,
+      "country": "US",
+      "sunrise": 1753872770,
+      "sunset": 1753921328
+    },
+    "timezone": -14400,
+    "id": 4161580,
+    "name": "Largo",
+    "cod": 200
+  },
+  "largo, maryland": {
+    "coord": {
+      "lon": -82.7873,
+      "lat": 27.9095
+    },
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clouds",
+        "description": "scattered clouds",
+        "icon": "03d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 88.99,
+      "feels_like": 98.91,
+      "temp_min": 87.75,
+      "temp_max": 90.99,
+      "pressure": 1015,
+      "humidity": 63,
+      "sea_level": 1015,
+      "grnd_level": 1015
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 10.36,
+      "deg": 240,
+      "gust": 19.57
+    },
+    "clouds": {
+      "all": 40
+    },
+    "dt": 1753917156,
+    "sys": {
+      "type": 2,
+      "id": 2035993,
+      "country": "US",
+      "sunrise": 1753872770,
+      "sunset": 1753921328
+    },
+    "timezone": -14400,
+    "id": 4161580,
+    "name": "Largo",
+    "cod": 200
+  },
+  "popo": {
+    "coord": {
+      "lon": 4.2,
+      "lat": 8.5833
+    },
+    "weather": [
+      {
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 72.5,
+      "feels_like": 73.78,
+      "temp_min": 72.5,
+      "temp_max": 72.5,
+      "pressure": 1016,
+      "humidity": 92,
+      "sea_level": 1016,
+      "grnd_level": 974
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 7.63,
+      "deg": 211,
+      "gust": 19.19
+    },
+    "clouds": {
+      "all": 100
+    },
+    "dt": 1753918472,
+    "sys": {
+      "country": "NG",
+      "sunrise": 1753940074,
+      "sunset": 1753985066
+    },
+    "timezone": 3600,
+    "id": 2338772,
+    "name": "Popo",
+    "cod": 200
+  },
+  "hoi": {
+    "coord": {
+      "lon": 124.4269,
+      "lat": -9.8262
+    },
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clouds",
+        "description": "scattered clouds",
+        "icon": "03d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 75.15,
+      "feels_like": 75.7,
+      "temp_min": 75.15,
+      "temp_max": 75.15,
+      "pressure": 1015,
+      "humidity": 71,
+      "sea_level": 1015,
+      "grnd_level": 951
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 5.41,
+      "deg": 86,
+      "gust": 9.24
+    },
+    "clouds": {
+      "all": 48
+    },
+    "dt": 1754010234,
+    "sys": {
+      "country": "ID",
+      "sunrise": 1753999078,
+      "sunset": 1754041150
+    },
+    "timezone": 28800,
+    "id": 1626703,
+    "name": "Hoi",
+    "cod": 200
+  },
+  "hoboken": {
+    "coord": {
+      "lon": -74.0324,
+      "lat": 40.744
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 70.79,
+      "feels_like": 70.81,
+      "temp_min": 66.81,
+      "temp_max": 72.23,
+      "pressure": 1022,
+      "humidity": 69,
+      "sea_level": 1022,
+      "grnd_level": 1020
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 7,
+      "deg": 336,
+      "gust": 8.99
+    },
+    "clouds": {
+      "all": 0
+    },
+    "dt": 1754096497,
+    "sys": {
+      "type": 2,
+      "id": 2009754,
+      "country": "US",
+      "sunrise": 1754041972,
+      "sunset": 1754093513
+    },
+    "timezone": -14400,
+    "id": 5099133,
+    "name": "Hoboken",
+    "cod": 200
+  },
+  "absecon": {
+    "coord": {
+      "lon": -74.4957,
+      "lat": 39.4285
+    },
+    "weather": [
+      {
+        "id": 803,
+        "main": "Clouds",
+        "description": "broken clouds",
+        "icon": "04n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 67.91,
+      "feels_like": 68.4,
+      "temp_min": 65.16,
+      "temp_max": 69.98,
+      "pressure": 1023,
+      "humidity": 85,
+      "sea_level": 1023,
+      "grnd_level": 1022
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 3.44,
+      "deg": 30
+    },
+    "clouds": {
+      "all": 75
+    },
+    "dt": 1754096408,
+    "sys": {
+      "type": 2,
+      "id": 2074429,
+      "country": "US",
+      "sunrise": 1754042271,
+      "sunset": 1754093436
+    },
+    "timezone": -14400,
+    "id": 4500458,
+    "name": "Absecon",
+    "cod": 200
+  },
+  "hyattsville": {
+    "coord": {
+      "lon": -76.9455,
+      "lat": 38.9559
+    },
+    "weather": [
+      {
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 70.99,
+      "feels_like": 71.64,
+      "temp_min": 69.1,
+      "temp_max": 72.34,
+      "pressure": 1023,
+      "humidity": 82,
+      "sea_level": 1023,
+      "grnd_level": 1015
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 6.91,
+      "deg": 50
+    },
+    "clouds": {
+      "all": 100
+    },
+    "dt": 1754096428,
+    "sys": {
+      "type": 2,
+      "id": 2008951,
+      "country": "US",
+      "sunrise": 1754042925,
+      "sunset": 1754093958
+    },
+    "timezone": -14400,
+    "id": 4358821,
+    "name": "Hyattsville",
+    "cod": 200
+  },
+  "washington DC": {
+    "coord": {
+      "lon": -77.0364,
+      "lat": 38.8951
+    },
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clouds",
+        "description": "scattered clouds",
+        "icon": "03d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 81.55,
+      "feels_like": 81.77,
+      "temp_min": 78.62,
+      "temp_max": 84,
+      "pressure": 1020,
+      "humidity": 46,
+      "sea_level": 1020,
+      "grnd_level": 1013
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 8.05,
+      "deg": 50
+    },
+    "clouds": {
+      "all": 40
+    },
+    "dt": 1754242463,
+    "sys": {
+      "type": 2,
+      "id": 2002287,
+      "country": "US",
+      "sunrise": 1754215863,
+      "sunset": 1754266649
+    },
+    "timezone": -14400,
+    "id": 4140963,
+    "name": "Washington D.C.",
+    "cod": 200
+  },
+  "joppa": {
+    "coord": {
+      "lon": -88.8448,
+      "lat": 37.2064
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 67.82,
+      "feels_like": 67.87,
+      "temp_min": 66.09,
+      "temp_max": 68.99,
+      "pressure": 1021,
+      "humidity": 76,
+      "sea_level": 1021,
+      "grnd_level": 1007
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 3.44,
+      "deg": 10
+    },
+    "clouds": {
+      "all": 0
+    },
+    "dt": 1754190455,
+    "sys": {
+      "type": 1,
+      "id": 4817,
+      "country": "US",
+      "sunrise": 1754132467,
+      "sunset": 1754182921
+    },
+    "timezone": -18000,
+    "id": 4300244,
+    "name": "Joppa",
+    "cod": 200
+  },
+  "bowie": {
+    "coord": {
+      "lon": -94.4335,
+      "lat": 33.4501
+    },
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clouds",
+        "description": "scattered clouds",
+        "icon": "03n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 71.19,
+      "feels_like": 72.46,
+      "temp_min": 71.19,
+      "temp_max": 71.19,
+      "pressure": 1017,
+      "humidity": 95,
+      "sea_level": 1017,
+      "grnd_level": 1005
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 5.21,
+      "deg": 45,
+      "gust": 10.49
+    },
+    "clouds": {
+      "all": 49
+    },
+    "dt": 1754198445,
+    "sys": {
+      "type": 2,
+      "id": 2100175,
+      "country": "US",
+      "sunrise": 1754220710,
+      "sunset": 1754270153
+    },
+    "timezone": -18000,
+    "id": 4675805,
+    "name": "Bowie",
+    "cod": 200
+  },
+  "Annapolis": {
+    "coord": {
+      "lon": -76.4922,
+      "lat": 38.9785
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 76.05,
+      "feels_like": 76.41,
+      "temp_min": 73.96,
+      "temp_max": 78.98,
+      "pressure": 1022,
+      "humidity": 65,
+      "sea_level": 1022,
+      "grnd_level": 1020
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 5.01,
+      "deg": 0,
+      "gust": 7
+    },
+    "clouds": {
+      "all": 0
+    },
+    "dt": 1754232648,
+    "sys": {
+      "type": 2,
+      "id": 2003219,
+      "country": "US",
+      "sunrise": 1754215722,
+      "sunset": 1754266530
+    },
+    "timezone": -14400,
+    "id": 4347242,
+    "name": "Annapolis",
     "cod": 200
   }
 }
