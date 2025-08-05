@@ -41,13 +41,34 @@ class QuoteManager:
                     csv_reader = csv.reader(file)
                     rows = list(csv_reader)
                     
+                    # Extract author name from filename (remove .csv and clean up)
+                    author_name = self._extract_author_name(csv_file)
+                    
                     for row in rows:
                         if row:  # Skip empty rows
-                            # Take the first non-empty cell as the quote
-                            quote = next((cell.strip() for cell in row if cell.strip()), None)
-                            if quote and len(quote) > 10:  # Basic validation
+                            # Check if this is a header row (skip common header terms)
+                            first_cell = row[0].strip().lower()
+                            if first_cell in ['quote', 'quotes', 'text', 'saying', 'inspiration']:
+                                continue
+                                
+                            # Handle different CSV formats
+                            quote_text = None
+                            quote_author = "Unknown"  # Default to Unknown
+                            
+                            if len(row) >= 2:
+                                # Two columns: assume quote, author
+                                quote_text = row[0].strip()
+                                if row[1].strip():  # If author column has content, use it
+                                    quote_author = row[1].strip()
+                            else:
+                                # Single column: just the quote, author stays "Unknown"
+                                quote_text = row[0].strip()
+                            
+                            # Basic validation
+                            if quote_text and len(quote_text) > 10:
                                 self.quotes.append({
-                                    'text': quote,
+                                    'text': quote_text,
+                                    'author': quote_author,
                                     'source': csv_file.replace('.csv', '').replace('_', ' ').title()
                                 })
                                 
@@ -57,18 +78,47 @@ class QuoteManager:
         
         print(f"Loaded {len(self.quotes)} quotes from {len(csv_files)} files")
         
-        # Add backup quotes if no quotes were loaded
+        # Add fallback quotes if no quotes were loaded
         if not self.quotes:
             self.quotes = [
-                {'text': "Every day is a new beginning.", 'source': 'Default'},
-                {'text': "The weather may change, but your spirit remains constant.", 'source': 'Default'},
-                {'text': "Sunshine is the best medicine.", 'source': 'Default'}
+                {'text': "Every day is a new beginning.", 'author': 'Unknown', 'source': 'Default'},
+                {'text': "The weather may change, but your spirit remains constant.", 'author': 'Weather Wisdom', 'source': 'Default'},
+                {'text': "Sunshine is the best medicine.", 'author': 'Nature', 'source': 'Default'}
             ]
     
+    def _extract_author_name(self, filename):
+        """Extract a clean author name from the CSV filename"""
+        # Remove .csv extension
+        name = filename.replace('.csv', '')
+        
+        # Handle different naming patterns
+        if '_' in name:
+            # Handle patterns like "Juice_Kemp" or "Tiffani_Quotes1"
+            parts = name.split('_')
+            if len(parts) >= 2:
+                # If last part looks like "Quotes" or similar, ignore it
+                if parts[-1].lower().startswith('quote'):
+                    name_parts = parts[:-1]
+                else:
+                    name_parts = parts
+                
+                # Capitalize each part
+                clean_name = ' '.join(word.capitalize() for word in name_parts)
+            else:
+                clean_name = name.capitalize()
+        else:
+            # Single word filename
+            if name.lower() == 'quotes':
+                clean_name = 'Anonymous'
+            else:
+                clean_name = name.capitalize()
+        
+        return clean_name
+    
     def get_daily_quote(self):
-        """Get a quote for today (same quote all day)"""
+        """Get a quote for today (same quote all day) with author"""
         if not self.quotes:
-            return "Stay positive and have a great day!"
+            return "Stay positive and have a great day! — Unknown"
             
         # Use today's date as seed for consistent daily quote
         today = datetime.now().strftime('%Y-%m-%d')
@@ -78,19 +128,34 @@ class QuoteManager:
         # Reset random seed
         random.seed()
         
-        return quote_data['text']
+        return f"{quote_data['text']} — {quote_data['author']}"
     
     def get_random_quote(self):
-        """Get a completely random quote"""
+        """Get a completely random quote with author"""
         if not self.quotes:
-            return "Stay positive and have a great day!"
+            return "Stay positive and have a great day! — Unknown"
         
         quote_data = random.choice(self.quotes)
-        return quote_data['text']
+        return f"{quote_data['text']} — {quote_data['author']}"
+    
+    def get_daily_quote_data(self):
+        """Get full quote data for today (for advanced formatting)"""
+        if not self.quotes:
+            return {'text': "Stay positive and have a great day!", 'author': 'Unknown', 'source': 'Default'}
+            
+        # Use today's date as seed for consistent daily quote
+        today = datetime.now().strftime('%Y-%m-%d')
+        random.seed(today)
+        quote_data = random.choice(self.quotes)
+        
+        # Reset random seed
+        random.seed()
+        
+        return quote_data
 
 
 class ScrollingQuote:
-    """Creates a scrolling marquee effect for quotes"""
+    """Creates a scrolling marquee effect for quotes with author attribution"""
     
     def __init__(self, parent_widget, quote_manager, width=600):
         self.parent = parent_widget
@@ -132,8 +197,16 @@ class ScrollingQuote:
         self.quote_container.pack(**kwargs)
     
     def update_quote(self):
-        """Update to today's quote"""
-        self.current_quote = f"💭 Daily Inspiration: {self.quote_manager.get_daily_quote()}"
+        """Update to today's quote with author"""
+        quote_with_author = self.quote_manager.get_daily_quote()
+        self.current_quote = f"💭 Daily Inspiration: {quote_with_author}"
+        self.reset_scroll()
+    
+    def update_quote_advanced(self):
+        """Update with advanced formatting (optional method for future use)"""
+        quote_data = self.quote_manager.get_daily_quote_data()
+        formatted_quote = f"💭 \"{quote_data['text']}\" — {quote_data['author']}"
+        self.current_quote = formatted_quote
         self.reset_scroll()
     
     def reset_scroll(self):
@@ -182,3 +255,9 @@ if __name__ == "__main__":
     print("Today's quote:", qm.get_daily_quote())
     print("Random quote:", qm.get_random_quote())
     print(f"Total quotes loaded: {len(qm.quotes)}")
+    
+    # Show some example quotes with authors
+    if qm.quotes:
+        print("\nSample quotes:")
+        for i, quote in enumerate(qm.quotes[:3]):
+            print(f"{i+1}. \"{quote['text']}\" — {quote['author']}")
